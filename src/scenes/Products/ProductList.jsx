@@ -2,6 +2,7 @@ import React from 'react'
 import {motion } from 'framer-motion';
 import {useState } from 'react'
 import Logo from '../../assets/Logo.png'
+import protine from "../../assets/protine.jpg"
 import {useSelector, useDispatch} from "react-redux"
 import {BsFillHandbagFill,} from 'react-icons/bs';
 import {AiOutlineClose} from 'react-icons/ai';
@@ -114,26 +115,44 @@ const ProductList = () => {
           )}
       </nav>
 
-      <div className="mt-20 w-full h-auto sm:p-16  sm:px-32 flex-col sm:flex-row items-center justify-center flex sm:flex-wrap ">
+      <div className="w-full  md:h-[90vh]">
+             <motion.div 
+              initial={{opacity:0}}
+              animate={{opacity:1}}
+              transition={{duration:1.5}}
+               className=" bg-fixed before:absolute w-full h-full top-0  bg-contain md:bg-center " style={{backgroundImage:`url(${protine})`}}>
+                  <div className=' md:h-60 bg-white  left-20 bottom-0 w-1/4 absolute  border border-primary-500 shadow-2xl'>
+                     <div className='hidden md:block w-full py-14 px-4'>
+                        <h1 className='hidden md:block text-4xl font-montserrat font-semibold'>EVOGYM</h1>
+                         <p className=' text-left'>Get into the mind of one of pro tennis's top stars.</p>
+                          <button className="mt-2 text-2xl font-semibold  px-10 py-2 cursor-pointer border border-black" >
+                         Learn More
+                         </button>
+                     </div>
+                     
+                  </div>
+             </motion.div>
+         </div>
+
+
+      <div className="mt-24 flex-col sm:flex-row items-center justify-center flex sm:flex-wrap ">
+
         {
           products.map((product, index)=>{
               return(
-             <div key={index} className=" sm:w-60 md:w-96 mx-2  my-4 flex-col flex items-center hover:shadow-lg hover:border-2 hover:border-dotted hover:border-primary-100 rounded-2xl justify-around p-10">
-                 <img src={product.image} alt={product.title} className="w-40 overflow-hidden object-contain"/>
-                 <div className="text-center py-2">
-                     <h1 className="text-2xl font-mono text-black font-semibold">{product.title}</h1>
+             <div key={index} className="w-72 h-[600px] mx-2  my-4 flex-col flex  hover:border-2 hover:border-dotted hover:border-primary-100 rounded-2xl justify-evenly p-8">
+                 <img src={product.image} alt={product.title} className="h-52 overflow-hidden object-contain"/>
+                 <div className="text-center ">
+                     <h1 className="text-xl font-mono text-black font-semibold">{product.title}</h1>
                      <div className="py-2">
                        <h1 className=" text-slate-700 font-semibold">₹ {product.price}</h1>
                      </div>
                  </div>
-                <div className="text-center my-2 border border-slate-600 rounded-xl">
-               
-              
-                  <button onClick={()=> handleAddToCart(product)} className="rounded-md hover:rounded-xl  px-10 py-2 cursor-pointer hover:bg-primary-100" >
+                <div className="text-center my-2 px-6 border rounded-lg border-black bg-primary-100 hover:border-2 hover:bg-primary-500 shadow-2xl">
+                  <button onClick={()=> handleAddToCart(product)} className=" px-10 py-2 cursor-pointer " >
                       Add
-                 </button>
-                              
-              </div>
+                 </button>             
+                 </div>
              </div>
               )
            })

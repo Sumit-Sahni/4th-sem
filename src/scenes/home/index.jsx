@@ -57,7 +57,7 @@ const Home = () => {
               visible: { opacity: 1, x: 0 },
             }}
           >
-              <h1>Join Now</h1>
+              <h1 className=" rounded-lg bg-secondary-500 px-20 py-3 transition duration-500 hover:text-white cursor-pointer">Join Now</h1>
             {/* <AnchorLink
               className="text-sm font-bold text-primary-500 underline hover:text-secondary-500"
              

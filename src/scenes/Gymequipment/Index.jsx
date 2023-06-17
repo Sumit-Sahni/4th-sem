@@ -9,6 +9,8 @@ import {AiOutlineClose} from 'react-icons/ai';
 import { addToCart } from '../../store/addToCartSlice'; 
 import  useMediaQuery from "../hooks/useMediaQuery.ts"
 import {Link } from 'react-router-dom'
+import eqipment from "../../assets/eqipment.jpg"
+
 
 const Eqipment = () => {
 
@@ -32,7 +34,7 @@ const Eqipment = () => {
     <>
       
     <nav>
-      <div className={`${navbarBackground} ${flexBetween} bg-primary-100  fixed top-0 z-30 w-full py-6  `}>
+      <div className={`${navbarBackground} ${flexBetween} bg-primary-100 fixed top-0  h-24 w-full z-10 overflow-hidden  `}>
 
       <div className={`${flexBetween} mx-auto w-5/6` }> 
           <div className={`${flexBetween} w-full gap-16` }>
@@ -103,14 +105,33 @@ const Eqipment = () => {
           </motion.div>
         )}
     </nav>
+    
+        <div className="w-full  md:h-[90vh]">
+             <motion.div 
+              initial={{opacity:0}}
+              animate={{opacity:1}}
+              transition={{duration:1.5}}
+               className=" bg-fixed before:absolute w-full h-full top-0  bg-contain md:bg-center  bg-no-repeat object-contain" style={{backgroundImage:`url(${eqipment})`}}>
+                  <div className=' md:h-60 bg-white left-20 bottom-0 w-1/4 absolute shadow-2xl  border border-primary-500'>
+                     <div className='hidden md:block w-full py-14 px-4'>
+                        <h1 className='hidden md:block text-4xl font-montserrat font-semibold'>EVOGYM</h1>
+                         <p className=' text-left'>Get into the mind of one of pro tennis's top stars.</p>
+                          <button className="mt-2 text-2xl font-semibold  px-10 py-2 cursor-pointer border border-black" >
+                         Learn More
+                         </button>
+                     </div>
+                     
+                  </div>
+             </motion.div>
+         </div>
 
-    <div className="mt-20 w-full h-auto sm:p-16  sm:px-32 flex-col sm:flex-row items-center justify-center flex sm:flex-wrap ">
-    {
+       <div className="mt-20  flex-col sm:flex-row items-center justify-center flex sm:flex-wrap ">
+        {
           eq.map((product, index)=>{
               return(
-             <div key={index} className=" sm:w-60 md:w-96 mx-2  my-4 flex-col flex items-center hover:shadow-lg hover:border-2 hover:border-dotted hover:border-primary-100 rounded-2xl justify-around p-10">
+             <div key={index} className="w-72 h-[600px] mx-2  my-4 flex-col flex  hover:border-2 hover:border-dotted hover:border-primary-100 rounded-2xl justify-between p-8">
                 <div className='w-full'>
-                   <img src={product.image} alt={product.title} className="w-40 overflow-hidden object-contain self-start"/>
+                   <img src={product.image} alt={product.title} className=" overflow-hidden object-contain "/>
                 </div>
                 <div className='w-full'>
                     <div className=" py-2">
@@ -122,10 +143,11 @@ const Eqipment = () => {
                      </div>
                 </div>
                 <div className='w-full'>
-                   <button onClick={()=> handleAddToCart(product)} className="rounded-md hover:rounded-xl border-2  px-10 py-2 cursor-pointer hover:bg-primary-100" >
-                         Add
-                    </button>
+                 
                 </div>
+                <button onClick={()=> handleAddToCart(product)} className="mt-2 rounded-lg  shadow-2xl  border-2  px-10 py-2 cursor-pointer bg-primary-100 hover:border-2 hover:bg-primary-500" >
+                         Add To Cart
+               </button>
              </div>
               )
            })

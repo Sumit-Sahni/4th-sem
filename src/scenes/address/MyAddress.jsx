@@ -5,25 +5,35 @@ import {auth,db} from "../../firebase"
 
 const MyAddress = () => {
 
-    const [data, setData] = useState([]);
+    // const [data, setData] = useState([]);
+    const [building, setBuilding] = useState("");
+    const [city, setCity] = useState("");
+    const [pincode, setPincode] = useState("");
+    const [phone, setPhone] = useState("");
 
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const snapshot = await db.collection('users').get();
-          const extractedData = snapshot.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data()
-          }));
-          setData(extractedData);
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      };
+    const getData = () =>{
+      try {
+         db.collection('users')
+         .doc(auth.currentUser.uid).get()
+         .then((snapshot)=>{
+           if(snapshot.exists){
+              setBuilding(snapshot.data().building)
+              setCity(snapshot.data().city)
+              setPincode(snapshot.data().pincode)
+              setPhone(snapshot.data().number)
+            }else{
+              alert("Error")
+            }
+         })
+      } catch (error) {
+          alert("Error")
+      }
+  }
   
-      fetchData();
-    }, []);
-
+  useEffect(()=>{
+       getData()
+  },[])
+   
   return (
      
      <section>
@@ -31,15 +41,12 @@ const MyAddress = () => {
                 <div className='p-6'>
                        <img src={Logo} alt="" />
                 </div>
-                {data.map((item) => (
-                  <div className='px-6' key={item.id}>
-                    <h1 className='font-bold font-montserrat'>{auth.currentUser.email}</h1>
-                    <p><span className='font-semibold'>Building</span>: {item.building}</p>
-                    <p><span className='font-semibold'>City</span>: {item.city}</p>
-                    <p><span className='font-semibold'>Pin-Code</span>: {item.number}</p>
-                    <p><span className='font-semibold'>Phone Number</span>: {item.pincode}</p>
+                <div className='px-6' >
+                    <h1>Building: {building}</h1>
+                    <p><span>City</span>: {city}</p>
+                    <p><span>Pincode</span>: {pincode}</p>
+                    <p><span>Phone</span>: {phone}</p>
                   </div>
-                ))}
         </div>
      </section>
   )

@@ -13,10 +13,12 @@ import { useDispatch, useSelector, } from "react-redux";
 import {addToCart, removeFromCart, decreaseCart, clearCart,totalPriceInCart} from "../../store/addToCartSlice";
 import Address from "../address/Address";
 import MyAddress from "../address/MyAddress";
+import { useNavigate } from "react-router-dom";
 
 
 
 const CartList = () => { 
+       const navigate = useNavigate()
        const [isTopOfPage] = useState(false);
       //  const [activeButton, setActiveButton] = useState(4);
        const [addressPopup, setAddressPopup] = useState(false)
@@ -82,6 +84,7 @@ const CartList = () => {
           handler: function (response) {
             alert(response.razorpay_payment_id);
             alert("Payment Successfully");
+            navigate('/')
           },
           prefill: {
             name: "SUMIT SAHNI",
