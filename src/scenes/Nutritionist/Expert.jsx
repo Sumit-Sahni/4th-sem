@@ -15,7 +15,7 @@ const Expert = () => {
                 {
                   Doctor.map((doc, i)=>{
                      return(
-                      <div  key={i} className='w-[430px] rounded-2xl shadow-xl hover:shadow-none hover:border-primary-100 hover:border-2 cursor-pointer mx-2 my-2 p-4  border flex flex-col'>
+                      <div  key={i} className='w-[430px] rounded-2xl  hover:border-primary-100 hover:border-2 cursor-pointer mx-2 my-2 p-4  border flex flex-col'>
                               <div className='w-3/5 '>
                                   <img src={doc.image} alt="" className='w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-full' />
                               </div>
@@ -25,11 +25,10 @@ const Expert = () => {
                                   <h1><span className=' font-bold font-serif'>Specialization</span> {doc.specialization}</h1>
                                   <h1 className='text-sm mb-4'> <span className=' font-bold font-serif'>Certifications:</span> {doc.certifications} </h1>
 
-                                  <button className='px-4 py-1 bg-primary-500 rounded-xl text-white cursor-pointer'>
-                                    <Link to={`mailto:${doc.email}`} target="_top" className='text-sm'>Email</Link>
+                                  <button className='px-6 py-1 bg-primary-300 hover:bg-primary-500  rounded-xl text-white cursor-pointer'>
+                                    <Link to={`mailto:${doc.email}`} target="_top" className='text-sm text-black'>Email</Link>
                                   </button>
                               </div>
-                             
                       </div>
                      )
                   })

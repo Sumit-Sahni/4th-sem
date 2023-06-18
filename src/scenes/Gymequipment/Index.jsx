@@ -33,79 +33,80 @@ const Eqipment = () => {
   return (
     <>
       
-    <nav>
-      <div className={`${navbarBackground} ${flexBetween} bg-primary-100 fixed top-0  h-24 w-full z-10 overflow-hidden  `}>
+     
+      <nav>
+        <div className={`${navbarBackground} ${flexBetween} bg-primary-100  fixed top-0 z-30 w-full py-6  `}>
 
-      <div className={`${flexBetween} mx-auto w-5/6` }> 
-          <div className={`${flexBetween} w-full gap-16` }>
-              {/* LEFT SIDE */}
-              <Link to={"/"}>
-                 <img src={Logo} alt="Logo"/>
-              </Link>
-             
-              {/* RIGHT SIDE */}
-              {isAboveMediumScreen ?(
-              <div className={`${flexBetween} w-full`}>
-                  <div className={`${flexBetween} gap-8 text-sm`}>
-                    <Link to={"/products"}>product</Link>
-                  </div>
-                  <div>
-                  <Link to={"/cart"} className="relative ">
-                    <BsFillHandbagFill className="w-8 h-8  cursor-pointer ">
-                             
-                    </BsFillHandbagFill>
-                    <div className="w-8 h-8 absolute  -top-4 left-10 bg-primary-300 flex items-center justify-center rounded-full">
-                       <h1 className="text-black">{cart.cartItems.length}</h1>
+        <div className={`${flexBetween} mx-auto w-5/6` }> 
+            <div className={`${flexBetween} w-full gap-16` }>
+                {/* LEFT SIDE */}
+                <Link to={"/"}>
+                   <img src={Logo} alt="Logo"/>
+                </Link>
+               
+                {/* RIGHT SIDE */}
+                {isAboveMediumScreen ?(
+                <div className={`${flexBetween} w-full`}>
+                    <div className={`${flexBetween} gap-8 text-sm`}>
+                      <Link to={"/products"}>Products</Link>
                     </div>
-                  </Link>  
-                  
-                  </div>
-              </div>)
-              :(
-                   <button
-                    className=" rounded-full bg-secondary-500 p-2"
-                    onClick={()=>setIsMenuToggled(!isMenuToggled)}
-                   >
-                   <AiOutlineClose className=" h-6 w-6 text-white"/>
-                   </button>
-                )}
-            </div>
-         </div>
-      </div>
-
-      {/* MOBILE MENU MODAL */}
-        {!isAboveMediumScreen && isMenuToggled && (
-          <motion.div 
-           initial={{opacity:0}}
-           animate={{opacity:1}}
-           transition={{duration:0.5}}
-           exit={{opacity:0}}
-           className="fixed right-0  bottom-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl">
-              {/*Close ICON */}
-              <div className="flex justify-end p-10">
-                  <button  onClick={()=> setIsMenuToggled(!isMenuToggled)}>
-                   
-                  <AiOutlineClose className="w-6 h-6 text-gray-400" />
-                  </button>
+                    <div>
+                    <Link to={"/cart"} className="relative ">
+                      <BsFillHandbagFill className="w-8 h-8  cursor-pointer ">
+                               
+                      </BsFillHandbagFill>
+                      <div className="w-8 h-8 absolute  -top-4 left-10 bg-primary-300 flex items-center justify-center rounded-full">
+                         <h1 className="text-black">{cart.cartItems.length}</h1>
+                      </div>
+                    </Link>  
+                    
+                    </div>
+                </div>)
+                :(
+                     <button
+                      className=" rounded-full bg-secondary-500 p-2"
+                      onClick={()=>setIsMenuToggled(!isMenuToggled)}
+                     >
+                     <AiOutlineClose className=" h-6 w-6 text-white"/>
+                     </button>
+                  )}
               </div>
-              {/* MENU ITEMS */}
-              <div className="w-full  h-[50%]">
-              <div className={`ml-[33%] flex flex-col gap-6`}>
-                    <Link to={"/"}>Home</Link>
-                      <Link to={"/cart"} className="relative ">
-                         <BsFillHandbagFill className="w-8 h-8  cursor-pointer ">
-                                  
-                         </BsFillHandbagFill>
-                         <div className="w-8 h-8 absolute  -top-4 left-10 bg-primary-300 flex items-center justify-center rounded-full">
-                            <h1 className="text-black">0</h1>
-                         </div>
-                      </Link>  
-                  </div>
-              </div>
-          </motion.div>
-        )}
-    </nav>
-    
+           </div>
+        </div>
+ 
+        {/* MOBILE MENU MODAL */}
+          {!isAboveMediumScreen && isMenuToggled && (
+            <motion.div 
+             initial={{opacity:0}}
+             animate={{opacity:1}}
+             transition={{duration:0.5}}
+             exit={{opacity:0}}
+             className="fixed right-0  bottom-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl">
+                {/*Close ICON */}
+                <div className="flex justify-end p-10">
+                    <button  onClick={()=> setIsMenuToggled(!isMenuToggled)}>
+                     
+                    <AiOutlineClose className="w-6 h-6 text-gray-400" />
+                    </button>
+                </div>
+                {/* MENU ITEMS */}
+                <div className="w-full  h-[50%]">
+                <div className={`ml-[33%] flex flex-col gap-6`}>
+                      <Link to={"/"}>Home</Link>
+                        <Link to={"/cart"} className="relative ">
+                           <BsFillHandbagFill className="w-8 h-8  cursor-pointer ">
+                                    
+                           </BsFillHandbagFill>
+                           <div className="w-8 h-8 absolute  -top-4 left-10 bg-primary-300 flex items-center justify-center rounded-full">
+                              <h1 className="text-black">0</h1>
+                           </div>
+                        </Link>  
+                    </div>
+                </div>
+            </motion.div>
+          )}
+      </nav>
+      <hr className='hidden md:block mt-24 h-4 border-2'></hr>
         <div className="w-full  md:h-[90vh]">
              <motion.div 
               initial={{opacity:0}}
@@ -129,7 +130,7 @@ const Eqipment = () => {
         {
           eq.map((product, index)=>{
               return(
-             <div key={index} className="w-72 h-[600px] mx-2  my-4 flex-col flex  hover:border-2 hover:border-dotted hover:border-primary-100 rounded-2xl justify-between p-8">
+             <div key={index} className="w-72 h-[600px]  mx-2  my-4 flex-col flex hover:shadow-lg rounded-2xl justify-between p-8">
                 <div className='w-full'>
                    <img src={product.image} alt={product.title} className=" overflow-hidden object-contain "/>
                 </div>
@@ -143,7 +144,7 @@ const Eqipment = () => {
                      </div>
                 </div>
                 <div className='w-full'>
-                 
+                   
                 </div>
                 <button onClick={()=> handleAddToCart(product)} className="mt-2 rounded-lg  shadow-2xl  border-2  px-10 py-2 cursor-pointer bg-primary-100 hover:border-2 hover:bg-primary-500" >
                          Add To Cart

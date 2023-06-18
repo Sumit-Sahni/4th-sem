@@ -47,7 +47,7 @@ const Future = () => {
                     <div className='w-full flex flex-col  items-center p-4 '>
                         <div><h1 className=' text-sm font-medium font-dmsans '>Take your first small step</h1></div>
                         <div className='my-2'>
-                            <div className='w-full rounded-2xl px-10 py-2 border bg-primary-100'>
+                            <div className='w-full rounded-2xl px-10 py-2 border bg-primary-300'>
                                 <button className='w-full'>Book a free 15 minute consultation</button>
                             </div>
                         </div>

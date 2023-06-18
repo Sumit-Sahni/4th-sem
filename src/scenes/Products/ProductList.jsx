@@ -140,7 +140,7 @@ const ProductList = () => {
         {
           products.map((product, index)=>{
               return(
-             <div key={index} className="w-72 h-[600px] mx-2  my-4 flex-col flex  hover:border-2 hover:border-dotted hover:border-primary-100 rounded-2xl justify-evenly p-8">
+             <div key={index} className="w-72 h-[600px] mx-2  my-4 flex-col flex hover:shadow rounded-2xl justify-evenly p-8">
                  <img src={product.image} alt={product.title} className="h-52 overflow-hidden object-contain"/>
                  <div className="text-center ">
                      <h1 className="text-xl font-mono text-black font-semibold">{product.title}</h1>
@@ -148,8 +148,8 @@ const ProductList = () => {
                        <h1 className=" text-slate-700 font-semibold">₹ {product.price}</h1>
                      </div>
                  </div>
-                <div className="text-center my-2 px-6 border rounded-lg border-black bg-primary-100 hover:border-2 hover:bg-primary-500 shadow-2xl">
-                  <button onClick={()=> handleAddToCart(product)} className=" px-10 py-2 cursor-pointer " >
+                <div className="mt-2 text-center rounded-lg  shadow-2xl  border-2  px-10 py-2 cursor-pointer bg-primary-100 hover:border-2 hover:bg-primary-500">
+                  <button onClick={()=> handleAddToCart(product)} className=" cursor-pointer " >
                       Add
                  </button>             
                  </div>
