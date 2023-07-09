@@ -52,11 +52,11 @@ const Eqipment = () => {
                     </div>
                     <div>
                     <Link to={"/cart"} className="relative ">
-                      <BsFillHandbagFill className="w-8 h-8  cursor-pointer ">
+                      <BsFillHandbagFill className={` w-8 h-8  cursor-pointer  ${cart.cartItems.length ? "text-green-500" : "text-black"}`}>
                                
                       </BsFillHandbagFill>
-                      <div className="w-8 h-8 absolute  -top-4 left-10 bg-primary-300 flex items-center justify-center rounded-full">
-                         <h1 className="text-black">{cart.cartItems.length}</h1>
+                      <div className="w-8 h-8 absolute  -top-4 left-10  flex items-center justify-center rounded-full">
+                         <h1 className="text-black font-extrabold font-montserrat">{cart.cartItems.length}</h1>
                       </div>
                     </Link>  
                     
@@ -94,10 +94,10 @@ const Eqipment = () => {
                 <div className={`ml-[33%] flex flex-col gap-6`}>
                       <Link to={"/"}>Home</Link>
                         <Link to={"/cart"} className="relative ">
-                           <BsFillHandbagFill className="w-8 h-8  cursor-pointer ">
+                           <BsFillHandbagFill className={` w-8 h-8  cursor-pointer  ${cart.cartItems.length ? "text-green-500" : "text-black"}`}>
                                     
                            </BsFillHandbagFill>
-                           <div className="w-8 h-8 absolute  -top-4 left-10 bg-primary-300 flex items-center justify-center rounded-full">
+                           <div className="w-8 h-8 absolute  -top-4 left-10  flex items-center justify-center rounded-full">
                               <h1 className="text-black">0</h1>
                            </div>
                         </Link>  
@@ -106,7 +106,6 @@ const Eqipment = () => {
             </motion.div>
           )}
       </nav>
-      <hr className='hidden md:block mt-24 h-4 border-2'></hr>
         <div className="w-full  md:h-[90vh]">
              <motion.div 
               initial={{opacity:0}}

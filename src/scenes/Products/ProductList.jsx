@@ -12,7 +12,7 @@ import  useMediaQuery from "../hooks/useMediaQuery.ts"
 import {Link } from 'react-router-dom'
 
 const ProductList = () => {
-
+     
     const flexBetween ="flex  items-center justify-between"
     const [isMenuToggled, setIsMenuToggled] = useState(false);
     const [isTopOfPage] = useState(false);
@@ -60,11 +60,11 @@ const ProductList = () => {
                     </div>
                     <div>
                     <Link to={"/cart"} className="relative ">
-                      <BsFillHandbagFill className="w-8 h-8  cursor-pointer ">
+                      <BsFillHandbagFill className={` w-8 h-8  cursor-pointer  ${cart.cartItems.length ? "text-green-500" : "text-black"}`}>
                                
                       </BsFillHandbagFill>
-                      <div className="w-8 h-8 absolute  -top-4 left-10 bg-primary-300 flex items-center justify-center rounded-full">
-                         <h1 className="text-black">{cart.cartItems.length}</h1>
+                      <div className="w-8 h-8 absolute  -top-4 left-10 flex items-center justify-center rounded-full">
+                         <h1 className="text-black font-extrabold font-montserrat">{cart.cartItems.length}</h1>
                       </div>
                     </Link>  
                     
