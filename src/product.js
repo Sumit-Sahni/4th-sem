@@ -26,6 +26,15 @@ const products = [
       image:
         "https://res.cloudinary.com/chaoocharles/image/upload/v1629289889/online-shop/galaxyS_dvjf5w.png",
     },
+    {
+      id: 3,
+      name: "P-Protine",
+      brand: "Samsung",
+      desc: "6.5-inch display",
+      price: 399,
+      image:
+        "https://res.cloudinary.com/chaoocharles/image/upload/v1629289889/online-shop/galaxyS_dvjf5w.png",
+    },
   ];
   
 module.exports = products;

@@ -94,6 +94,12 @@ const initialState = {
             price: 3496,
             description: "Sturdy bench press for chest and arm workouts",
             image: "https://m.media-amazon.com/images/I/41Cl3B7tAqL._SX300_SY300_QL70_FMwebp_.jpg"
+          }, {
+            id: 23,
+            title: "Double Bench Press",
+            price: 3496,
+            description: "Sturdy bench press for chest and arm workouts",
+            image: "https://m.media-amazon.com/images/I/41Cl3B7tAqL._SX300_SY300_QL70_FMwebp_.jpg"
           }
      ]
 } 

@@ -6,6 +6,7 @@ import Cart from './scenes/Cart/CartList'
 import Eqipment from './scenes/Gymequipment/Index';
 import Nutritionist from './scenes/Nutritionist/Nutritionist';
 import Package from './scenes/Package/Package';
+import Invoice from './scenes/invoice/Invoice';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/welcome" exact element={<Welcome/>}/>
       <Route path="/products" exact element={<Product/>}/>
       <Route path="/cart" exact element={<Cart/>}/>
+      <Route path="/invoice" exact element={<Invoice/>}/>
      </Routes>
      </BrowserRouter>
     </div>

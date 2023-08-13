@@ -138,7 +138,7 @@ const Benefits = () => {
             {/* BUTTON */}
             <div className="relative mt-16">
               <div className="before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
-                 <h1>Join Now</h1>
+                 <h1 className=" w-60 rounded-lg bg-secondary-500 px-20 py-2 transition duration-500 hover:text-white cursor-pointer">Join Now</h1>
               </div>
             </div>
           </div>

@@ -84,7 +84,8 @@ const CartList = () => {
           handler: function (response) {
             alert(response.razorpay_payment_id);
             alert("Payment Successfully");
-            navigate('/')
+            ClearCart();
+            navigate('/cart')
           },
           prefill: {
             name: "SUMIT SAHNI",
